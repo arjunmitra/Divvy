@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Dashboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://unpkg.com/mathjs/dist/math.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<style>
+		body {
+			background-color: #21313C;
+			color: #e6e6e6;
+			border-color: #e6e6e6;
+			text-align: center;
+			font-size: 32px;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Divvy</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="/Dashboard">Dashboard</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container" style="width:100vw; height:88vh; padding: 0; margin: 0;">
+		<iframe src="https://charts.mongodb.com/charts-project-0-srsej/public/dashboards/f17671d5-5e37-4462-bf6a-82bf01a7e1bd" style="width:inherit; height: inherit;">
+		</iframe>
+	</div>
+
+</body>
+
+</html>

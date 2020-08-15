@@ -13,3 +13,6 @@ lib/python3.7/site-packages/
 *.png
 *.rst
 test.py
+orders.csv
+*.twb
+.DS_Store

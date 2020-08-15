@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Order</title>
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>-->
+  <script src="https://unpkg.com/mathjs/dist/math.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+    <link href=
+'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+		rel='stylesheet'>
+
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" >
+	</script>
+
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" >
+	</script>
+<style>
+body{
+
+	background-color: #21313C;
+    color: #e6e6e6;
+    border-color: #e6e6e6;
+    text-align:center;
+    font-size:32px;
+
+    /* margin:20px; */
+
+
+}
+<!--.navbar-nav li a {-->
+<!--    color: 	#e6e6e6;-->
+<!--    margin-right:20px;-->
+<!--    margin-left:20px;-->
+
+
+<!--}-->
+
+<!--.navbar-->
+<!--{-->
+<!--    border:5px solid #000;-->
+<!--    border-color:#20B2AA;;-->
+<!--}-->
+
+.errors{
+	color:#FF2400;
+	font-size:16px;
+}
+input{
+	text-align:center;
+
+}
+
+button{
+width:300px;
+
+}
+
+select{
+	text-align-last:center;
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Divvy</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/Dashboard">Dashboard</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+		<div class="container">
+            <div class="row">
+                <div class=" mx-auto text-center form p-4">
+                    <h1 class="text-truncate">Add Information For New Order</h1>
+                    <div>
+                        <form action="#" method="POST" class="justify-content-center"  onsubmit="return validate()" >
+
+                        	<div class="form-group">
+                                <label class="">Date</label>
+                                <input type="date" class="form-control" name="date" id="dateValue" placeholder="When Was The Order Placed" id="date" required>
+                             <div class="errors" id="dateError"></div>
+                                <script>
+									document.getElementById('dateValue').valueAsDate = new Date();
+								</script>
+                                <script>
+                                 if ( $('#dateValue')[0].type != 'date' ){
+                                    $(document).ready(function() {
+
+                                        $(function() {
+
+                                            $("#dateValue").datepicker().datepicker("setDate", new Date());
+                                        });
+                                    })
+                                }
+                                </script>
+
+
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <label class="" style="">Category</label>
+                                <select id="categories" class="form-control" id="selectCategory" name="category" required>
+						  			<option value="home">Home</option>
+									<option value="dining">Dining</option>
+								</select>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="">Location</label>
+                                <input type="text"  name="loc"class="form-control" placeholder="Where Was The Order Placed" id="orders" required>
+                            <div class="errors" id="locationError"></div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="">Nishant's Amount</label>
+                                <input type="text"  name="nishant"class="form-control" placeholder="What Was Nishant's Cost" id="nishant" required>
+                            <div class="errors" id="nishantError"></div>
+                            </div>
+
+                             <div class="form-group">
+                                <label class="">Arjun's Amount</label>
+                                <input type="text" name="arjun"class="form-control" placeholder="What Was Arjun's Cost" id="arjun" required>
+                            <div class="errors" id="arjunError"></div>
+                            </div>
+
+                             <div class="form-group">
+                                <label class="">Param's Amount</label>
+                                <input type="text" name="param"class="form-control" placeholder="What Was Param's Cost" id="param" required>
+                            <div class="errors" id="paramError"></div>
+                            </div>
+
+                            <div class="form-group collapse"  id="newUserName" aria-expanded="false"  >
+                                <label class="">New User's Name</label>
+                                <input type="text" name="userName"class="form-control" placeholder="When Was The Name Of The New User" id="userName" >
+                            <div class="errors" id="userNameError"></div>
+
+                            </div>
+
+
+                            <div class="form-group collapse" id="newUserTotal" aria-expanded="false" >
+
+                                <label class="">New User's Total</label>
+                                <input type="text" name="userTotal" class="form-control" placeholder="When Was The Cost For The New User" id="userTotal" >
+                            <div class="errors"  id="userTotalError"></div>
+                            </div>
+
+                              <div class="form-group">
+                                <label class="">Total Cost</label>
+                                <input type="number"  name="total"class="form-control" placeholder="What Was The Total Cost Of The Order" id="total">
+                            <div class="errors" id="totalError"></div>
+                            </div>
+
+
+
+
+
+
+                             <div class="form-group">
+                            	<button type="button"class="btn btn-primary btn-lg" style="background-color: #20B2AA;" id="addButton" data-toggle="collapse" data-target=".collapse" onclick="addUser()">Add a new User</button>
+                            </div>
+
+                            <div class="form-group">
+                            	<button type="submit" class="btn btn-primary btn-lg" style="background-color: #20B2AA;">Add an Order</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+<script>
+ function addUser(){
+
+  var name = document.getElementById("newUserName")
+   var total = document.getElementById("newUserTotal");
+
+
+  if (name.getAttribute("aria-expanded")=== "false") {
+
+	    name.setAttribute("aria-expanded","true");
+	    total.setAttribute("aria-expanded","true");
+	    document.getElementById("addButton").innerHTML= "Remove new user";
+	  } else {
+		  name.setAttribute("aria-expanded","false");
+		  total.setAttribute("aria-expanded","false");
+	    document.getElementById("addButton").innerHTML= "Add a new user";
+	  }
+
+
+
+
+
+ }
+
+</script>
+
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('justify-content-center needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+    	console.log(form)
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+<script>
+function validExpression(exp){
+	/* console.log(exp); */
+	try {
+		const parser = math.parser();
+		parser.evaluate(exp)  ;
+		/* console.log("true"); */
+		return true;
+		}
+	catch(err) {
+		/* console.log("false"); */
+		  return false;
+	}
+}
+</script>
+
+<script>
+function validate(){
+	var ans= true;
+	const parser = math.parser();
+	var validExp= true;
+	var Nish= document.getElementById("nishant").value;
+
+	if( validExpression(Nish)== false|| Nish ==""){
+			document.getElementById("nishantError").innerHTML= "Enter a appropriate number for Nishant";
+			ans= false;
+
+	}
+	else{
+		document.getElementById("nishantError").innerHTML= "";
+	}
+	var Arjun= document.getElementById("arjun").value;
+	if(validExpression(Arjun)==false || Arjun ==""){
+		document.getElementById("arjunError").innerHTML= "Enter a appropriate number for Arjun";
+		ans= false;
+	}
+	else{
+		document.getElementById("arjunError").innerHTML= "";
+	}
+
+	var Param= document.getElementById("param").value;
+	if(validExpression(Param)==false || Param ==""){
+		document.getElementById("paramError").innerHTML= "Enter a appropriate number for Param";
+		ans= false;
+	}
+	else{
+		document.getElementById("paramError").innerHTML= "";
+	}
+
+	if(document.getElementById("newUserName").getAttribute("aria-expanded") ==="true"){
+		if(document.getElementById("userName").value ==""){
+
+			document.getElementById("userNameError").innerHTML= "Enter a valid name";
+			ans=false;
+		}
+		else{
+
+			document.getElementById("userNameError").innerHTML="";
+		}
+		var userTotal= document.getElementById("userTotal").value
+		if(validExpression(userTotal)==false || userTotal ==""){
+			document.getElementById("userTotalError").innerHTML= "Enter a appropriate total for the new user";
+			ans= false;
+		}
+		else{
+			document.getElementById("usertotalError").innerHTML= "";
+		}
+	}
+	var total=document.getElementById("total").value;
+	if(validExpression(total)==false || total ==""){
+		document.getElementById("totalError").innerHTML= "Enter a appropriate total value";
+		ans= false;
+	}
+	else{
+		document.getElementById("totalError").innerHTML= "";
+	}
+
+
+	return ans;
+}
+
+
+
+</script>
+</body>
+</html>
